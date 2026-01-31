@@ -1,408 +1,237 @@
-# UpVest - Intelligent Investment Companion
+💰 UpVest - Intelligent Investment Companion
+Hackathon Project: Automated Wealth Building Through Spare Change & AI-Powered Recommendations
 
-A fintech platform that transforms everyday spending into investment opportunities through intelligent round-off savings and AI-driven stock recommendations.
+🎯 Problem Statement
+Young professionals and everyday consumers struggle to invest due to:
+- Lack of initial capital and investment knowledge
+- Psychological friction of taking the first investment step
+- Decision paralysis from overwhelming market information
+- Small savings ignored because they seem insignificant (₹50 here, ₹100 there adds up!)
 
----
+💡 Solution
+UpVest - An automated investment platform that transforms everyday spending into wealth building through intelligent round-off savings and AI-driven stock recommendations, enabling passive wealth accumulation.
 
-## 📋 Table of Contents
-- [Project Overview](#project-overview)
-- [Problem Statement](#problem-statement)
-- [Solution](#solution)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation & Setup](#installation--setup)
-- [Usage Instructions](#usage-instructions)
-- [Architecture & Workflow](#architecture--workflow)
-- [My Role & Contributions](#my-role--contributions)
-- [Team Credits](#team-credits)
-- [Future Enhancements](#future-enhancements)
+🚀 Key Features
+✨ Smart Wealth Building
+Round-Off Automation: Pay ₹234 → Automatic ₹266 round-off → ₹32 invested instantly
+Multi-Wallet System: Active Wallet (spending) → Savings Wallet → Investment Wallet
+Atomic Transactions: Safe fund transfers with rollback protection
+Zero Friction: No manual intervention required
 
----
+🤖 AI & Analytics
+Smart Recommendations: ML model suggests BUY/HOLD/SELL stocks with confidence scores
+Real-Time Analytics: Spending patterns, category breakdown, investment performance
+Transaction History: Complete audit trail with timestamps and categorization
+Portfolio Insights: View total invested, performance metrics, and growth trends
 
-## 🎯 Project Overview
+💳 User Experience
+Intuitive Dashboard: Portfolio overview with key metrics at a glance
+Transaction Tracking: Monitor every payment and investment movement
+Quick Actions: Transfer funds, view recommendations, check balance
+Category Insights: Understand spending by transport, food, shopping, etc.
 
-**UpVest** is an innovative fintech application designed to democratize investing by making it accessible and effortless for everyday users. The platform automatically converts spare change from daily transactions into investments, eliminating the psychological barrier of starting an investment journey. By combining behavioral economics with machine learning, UpVest empowers users to build wealth passively while managing their finances actively.
+🛠 Tech Stack
+Backend
+Express.js 5.1 - RESTful API server
+Node.js - JavaScript runtime
+PostgreSQL (pg 8.16) - Relational database for financial data
+CORS - Cross-origin resource sharing
 
-**Target Users:** Young professionals, students, and everyday consumers who want to invest but lack initial capital, knowledge, or habit formation.
+Frontend
+React 19.1 - Interactive UI components
+Vite 7.1 - Lightning-fast build tool & dev server
+Tailwind CSS 4.1 - Utility-first styling
+Lucide React 0.548 - Professional icon library
+ESLint - Code quality
 
----
+Database & Storage
+PostgreSQL - Persistent wallet state, transactions, user profiles
+Connection Pooling - Optimized database performance
 
-## 🔍 Problem Statement
+AI & ML
+Python ML Model (Placeholder) - Stock recommendation engine
+Confidence Scoring - Risk-adjusted suggestions
 
-### The Investment Gap
-- **87% of millennials** don't invest regularly due to perceived complexity and lack of capital
-- **Psychological friction** prevents people from taking the first step toward investing
-- **Decision paralysis** due to overwhelming stock market information
-- **Small savings get ignored** because they seem insignificant
 
-### The Motivation
-We need a system that:
-1. Reduces friction in the investment process
-2. Automates wealth building through behavioral nudging
-3. Provides intelligent, personalized investment recommendations
-4. Turns "spare change" into meaningful investments
+📁 Project Structure
+UpVest/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Dashboard.jsx       # Portfolio overview
+│   │   │   └── Wallet.jsx          # Wallet management UI
+│   │   ├── App.jsx                 # Main app component
+│   │   ├── App.css                 # Styling
+│   │   ├── main.jsx                # React entry point
+│   │   └── index.css               # Global styles
+│   ├── public/                     # Static assets
+│   ├── package.json
+│   ├── vite.config.js
+│   └── index.html
+├── backend/
+│   ├── server.js                   # Express API server
+│   ├── db.js                       # PostgreSQL connection
+│   ├── package.json
+│   └── .env                        # Database credentials
+├── vite.config.js
+├── eslint.config.js
+├── package.json
+└── README.md
 
----
+🎬 Demo Flow
+Scenario: Daily Investment Journey
 
-## 💡 Solution
+User Payment: "I paid ₹234 for coffee"
+  ↓
+Round-Off Calculation: ₹266 - ₹234 = ₹32 spare change
+  ↓
+Automatic Routing: ₹234 deducted from Active Wallet
+                   ₹32 added to Savings Wallet
+  ↓
+Transaction Recorded: Logged in history with timestamp
+  ↓
+AI Analysis: ML model scans market trends
+  ↓
+Recommendations: "AAPL (95% confidence) - BUY"
+                 "MSFT (88% confidence) - HOLD"
+                 "GOOGL (75% confidence) - SELL"
+  ↓
+User Action: Transfers ₹32 from Savings → Investment
+  ↓
+Portfolio Update: Dashboard shows +₹32 invested
+                  Total invested this month: ₹1,240
 
-**UpVest** solves this through:
+Business Dashboard Insights:
+✓ 5 users invested today via round-offs
+✓ Average round-off per transaction: ₹28
+✓ Top recommendation: AAPL (30 users buying)
+✓ Revenue generated: ₹1,240 invested today
 
-1. **Round-Off Automation** - Every transaction triggers a round-off calculation that automatically directs spare change to an investment wallet
-2. **Intelligent Recommendations** - Machine learning models analyze market data to suggest stocks aligned with user risk profiles
-3. **Transparent Dashboard** - Real-time visualization of investments, savings, and portfolio performance
-4. **Multi-Wallet System** - Separate management of active spending, savings, and investment funds
-5. **Gamification Elements** - Achievement tracking and investment milestones to encourage regular participation
 
-The core insight: **Small, consistent, automated investments compound into substantial wealth without behavioral effort.**
+🚦 Getting Started
 
----
+Prerequisites
+Node.js 18.0+ and npm 9.0+
+PostgreSQL 12+ running locally
+Git
 
-## ✨ Features
-
-### 1. **Smart Round-Off Savings**
-   - Automatic spare change calculation on every payment
-   - Example: ₹234 payment → ₹266 round-off → ₹32 directed to investment wallet
-   - Configurable rounding thresholds
-
-### 2. **Multi-Wallet Management**
-   - **Active Wallet**: Daily spending account with immediate balance
-   - **Savings Wallet**: Accumulated spare change from transactions
-   - **Investment Wallet**: Funds allocated toward stock purchases
-   - Real-time transfers between wallets with transaction audit trail
-
-### 3. **AI-Powered Stock Recommendations**
-   - Machine learning model analyzes market trends and volatility
-   - Risk-adjusted recommendations based on user profile
-   - Confidence scores for each recommendation (BUY/HOLD/SELL)
-   - Periodic model retraining for improved accuracy
-
-### 4. **Transaction History & Analytics**
-   - Complete transaction ledger with timestamps
-   - Spending pattern visualization
-   - Category-wise breakdown (transport, food, shopping, etc.)
-   - Monthly investment reports
-
-### 5. **User Dashboard**
-   - Portfolio overview with key metrics
-   - Investment performance tracking
-   - Quick action buttons for common operations
-   - Personalized investment recommendations feed
-
-### 6. **Security & Data Integrity**
-   - Database transactions for financial operations
-   - Input validation and error handling
-   - Secure API endpoints with CORS protection
-   - Environment-based configuration (no hardcoded credentials)
-
----
-
-## 🛠 Tech Stack
-
-### **Frontend**
-- **React 19.1** - UI library for interactive components
-- **Vite 7.1** - Lightning-fast build tool and dev server
-- **Tailwind CSS 4.1** - Utility-first styling framework
-- **Lucide React 0.548** - Professional icon library
-- **ESLint** - Code quality and consistency
-
-### **Backend**
-- **Node.js/Express 5.1** - RESTful API server
-- **PostgreSQL (pg 8.16)** - Relational database for persistent storage
-- **CORS** - Cross-origin resource sharing middleware
-- **dotenv 17.2** - Environment variable management
-
-### **Development & Deployment**
-- **Vite** - Hot Module Replacement for instant feedback
-- **PostCSS/Autoprefixer** - CSS processing and browser compatibility
-- **Git** - Version control
-
----
-
-## ⚙️ Installation & Setup
-
-### Prerequisites
-- Node.js 18.0+ and npm 9.0+
-- PostgreSQL 12+ with a running instance
-- Git for version control
-
-### Step 1: Clone the Repository
-```bash
+Clone & Setup
 git clone <repository-url>
 cd UpVest
-```
 
-### Step 2: Setup Environment Variables
-Create a `.env` file in the root directory and `backend/` directory:
+Backend Setup
+cd backend
+npm install
+cp .env.example .env
+# Add your database credentials
 
-**Root `.env` (if needed):**
-```
-VITE_API_URL=http://localhost:5000
-```
+Frontend Setup
+cd frontend
+npm install
+npm run dev
 
-**Backend `.env`:**
-```
+Database Setup
+psql -U postgres
+CREATE DATABASE upvest_db;
+
+The app automatically creates the `state` table on first run.
+
+Running the Application
+Terminal 1 - Backend (http://localhost:5000):
+cd backend
+npm run dev
+
+Terminal 2 - Frontend (http://localhost:5173):
+npm run dev
+
+🔑 Environment Variables
+# Backend .env file
 PGHOST=localhost
 PGUSER=postgres
 PGPASSWORD=your_password
 PGDATABASE=upvest_db
 PGPORT=5432
 PORT=5000
-```
 
-### Step 3: Setup PostgreSQL Database
-```bash
-# Login to PostgreSQL
-psql -U postgres
+🎯 Advantage Features
+1. Behavioral Economics at Scale
+Automates wealth building without user effort - the real innovation
 
-# Create the database
-CREATE DATABASE upvest_db;
-```
+2. Multi-Wallet Architecture
+Smart financial isolation: spending, savings, investment wallets operate independently
 
-The application automatically creates the required `state` table on first run.
+3. Atomic Transactions
+Database-level safety for financial operations - no partial transfers
 
-### Step 4: Install Frontend Dependencies
-```bash
-npm install
-```
+4. Real-Time Dashboard
+Live portfolio metrics, spending analysis, and recommendation feed
 
-### Step 5: Install Backend Dependencies
-```bash
-cd backend
-npm install
-```
+5. ML-Powered Insights
+Confidence-scored stock recommendations with buy/hold/sell actions
 
-### Step 6: Run the Application
+6. Zero Friction UX
+Simple interface that gets out of the way - investment happens automatically
 
-**Terminal 1 - Backend Server:**
-```bash
-cd backend
-npm run dev
-```
-Backend runs on `http://localhost:5000`
 
-**Terminal 2 - Frontend Development Server:**
-```bash
-npm run dev
-```
-Frontend runs on `http://localhost:5173`
+📊 Demo Metrics (Synthetic)
+User Base
+5+ User profiles with realistic transaction history
+₹5,000+ in active wallets across test accounts
 
-### Step 7: Build for Production
-```bash
-# Frontend build
-npm run build
+Transaction Data
+200+ Sample transactions with category tags
+Real-time balance updates across all wallet types
 
-# Backend is production-ready as-is
-```
+Investment Activity
+₹1,240 total invested via round-offs this month
+Average round-off per transaction: ₹28
+Top recommendation: AAPL (95% confidence)
 
----
+Portfolio Performance
+Total portfolio value tracking
+Monthly investment trend analysis
+Stock recommendation accuracy metrics
 
-## 📖 Usage Instructions
+🏆 Competitive Advantages
+Not Just a Chatbot - Full financial OS with multi-wallet system
+Behavioral Nudging - Makes investing effortless through automation
+Database-Safe Transactions - Atomic operations with rollback protection
+Real-Time Sync - Instant balance updates across components
+Data-Driven Insights - ML recommendations with confidence scoring
+Scalable Architecture - Modular design ready for production scale
 
-### 1. **Starting the Application**
-   - Launch both frontend and backend servers following the setup steps
-   - Open browser to `http://localhost:5173`
+🚀 Future Enhancements
 
-### 2. **Making a Payment**
-   - Enter payment amount in the UPI simulator
-   - System automatically calculates round-off amount
-   - Spare change is directed to savings wallet
-   - Transaction appears in history immediately
+Phase 1 (1-2 months)
+- [ ] User authentication & persistent profiles
+- [ ] Email notifications for milestones
+- [ ] Enhanced ML model with real market data
+- [ ] Unit & integration tests
+- [ ] Spending category management
 
-### 3. **Viewing Stock Recommendations**
-   - Navigate to the Recommendations section
-   - Review AI-generated stock picks with confidence scores
-   - Understand the reasoning (BUY/HOLD/SELL actions)
-
-### 4. **Managing Wallets**
-   - **Active Wallet**: View current spending balance
-   - **Transfer to Savings**: Move funds explicitly when needed
-   - **Transfer to Investment**: Direct savings toward stock portfolio
-   - All transactions are reversible and audited
-
-### 5. **Checking Dashboard**
-   - View total invested amount
-   - See investment performance metrics
-   - Monitor recent transactions
-   - Review spending patterns by category
-
----
-
-## 🏗 Architecture & Workflow
-
-### System Architecture
-
-```
-┌─────────────────────────────────────────────────┐
-│           Frontend (React + Vite)               │
-│  ┌──────────────────────────────────────────┐   │
-│  │  Dashboard  │  Wallet  │  Recommendations│   │
-│  │  Components │ Components │  Components    │   │
-│  └──────────────────────────────────────────┘   │
-└──────────────────────┬──────────────────────────┘
-                       │ HTTP REST API
-                       │ (CORS-enabled)
-┌──────────────────────▼──────────────────────────┐
-│       Backend (Express.js Server)               │
-│  ┌──────────────────────────────────────────┐   │
-│  │ /api/state/:key           (GET/POST)    │   │
-│  │ /api/transfer/...         (POST)         │   │
-│  │ /api/recommendations      (GET)          │   │
-│  └──────────────────────────────────────────┘   │
-│              ↓ Database Layer                    │
-│  ┌──────────────────────────────────────────┐   │
-│  │    PostgreSQL Connection Pool (pg)       │   │
-│  └──────────────────────────────────────────┘   │
-└──────────────────────┬──────────────────────────┘
-                       │
-       ┌───────────────┴───────────────┐
-       │                               │
-       ▼                               ▼
-   [wallet]                       [savings]
-   [state]                        [recommendations]
-   PostgreSQL Database            ML Model (Placeholder)
-```
-
-### Data Flow: Payment Processing
-
-```
-1. User Input
-   └─> Enter payment amount (e.g., ₹234)
-
-2. Frontend Calculation
-   └─> Calculate round-off: ₹266 - ₹234 = ₹32 spare change
-
-3. API Request
-   └─> POST /api/state/wallet/add { amount: -234 }
-   └─> POST /api/state/savings/add { amount: 32 }
-
-4. Backend Processing
-   └─> Validate amount (must be positive number)
-   └─> Execute database UPDATE query
-   └─> Return updated state with new balance
-
-5. Frontend Update
-   └─> Update local state with new balance
-   └─> Add transaction to history
-   └─> Display success feedback
-
-6. Database Persistence
-   └─> Change persisted in PostgreSQL `state` table
-```
-
-### Wallet Transfer Flow
-
-```
-1. User Initiates Transfer
-   └─> Wallet → Savings Transfer (or Savings → Investment)
-
-2. Transaction Isolation
-   └─> BEGIN transaction block
-   └─> Validate source balance
-   └─> Update both accounts atomically
-
-3. Commit or Rollback
-   └─> All changes committed together
-   └─> On error: entire transaction rolls back
-   └─> Prevents partial updates
-
-4. Response
-   └─> Return transfer amount and new balances
-```
-
-### ML Recommendation Engine
-
-```
-1. Data Collection
-   └─> Market data, historical trends, volatility metrics
-
-2. Model Training
-   └─> Train on historical data patterns
-   └─> Generate risk scores for each stock
-
-3. Prediction Generation
-   └─> /api/recommendations endpoint queries model
-   └─> Returns stocks with BUY/HOLD/SELL actions
-   └─> Includes confidence scores (0-1 range)
-
-4. User Presentation
-   └─> Frontend displays recommendations
-   └─> User can execute trades based on suggestions
-```
-
----
-
-## 👤 My Role & Contributions
-
-As the lead developer on this project, I:
-
-1. **Architected the full-stack application** - Designed the React frontend and Express backend with clean separation of concerns
-2. **Implemented multi-wallet system** - Built the core financial logic for managing Active, Savings, and Investment wallets with atomic transactions
-3. **Created the UI/UX** - Designed intuitive dashboard and wallet components using React hooks and Tailwind CSS, ensuring seamless user experience
-4. **Developed the round-off algorithm** - Engineered the mathematical model that automatically calculates and directs spare change to investment accounts
-5. **Built REST API** - Designed RESTful endpoints for state management, transfers, and ML recommendations with proper error handling
-6. **Set up database infrastructure** - Configured PostgreSQL with proper schema, transactions, and connection pooling
-7. **Integrated ML recommendations** - Connected the AI model to provide intelligent stock suggestions with confidence scoring
-8. **Implemented security measures** - Added input validation, CORS protection, and environment-based configuration
-9. **Optimized performance** - Used Vite for fast builds and hot reload, optimized database queries with proper indexing
-
----
-
-## 👥 Team Credits
-
-**UpVest Development Team:**
-- **Frontend & Full-Stack Development** - Myself
-- **ML Model Development** - [Team Member Name]
-- **Database Architecture** - [Team Member Name]
-- **UI/UX Design & Mentorship** - [Design Lead Name]
-- **Product Strategy** - [Product Manager Name]
-
----
-
-## 🚀 Future Enhancements
-
-### Short Term (1-2 months)
-- [ ] User authentication system (JWT-based)
-- [ ] Persistent user profiles and personalized dashboards
-- [ ] Enhanced ML model with real market data integration
-- [ ] Unit and integration tests for critical paths
-- [ ] Email notifications for investment milestones
-
-### Medium Term (3-6 months)
-- [ ] Mobile app (React Native) for iOS and Android
-- [ ] Real-time stock price integration (live ticker)
+Phase 2 (3-6 months)
+- [ ] Mobile app (React Native)
+- [ ] Real-time stock ticker integration
 - [ ] Portfolio rebalancing recommendations
-- [ ] Tax optimization insights
 - [ ] Social features (share investments, leaderboards)
+- [ ] Advanced analytics dashboard
 
-### Long Term (6+ months)
-- [ ] Integration with real banking APIs
+Phase 3 (6+ months)
+- [ ] Real banking API integration
 - [ ] Automated dividend reinvestment
 - [ ] Multi-currency support
-- [ ] Advanced portfolio analytics and reporting
+- [ ] Tax optimization insights
 - [ ] AI chatbot for investment advice
-- [ ] Regulatory compliance and KYC integration
-- [ ] International expansion with localized content
+- [ ] KYC & regulatory compliance
+- [ ] International expansion
 
-### Technical Debt & Improvements
-- [ ] Migrate to TypeScript for type safety
-- [ ] Implement comprehensive error boundaries
-- [ ] Add monitoring and analytics (Sentry, Google Analytics)
-- [ ] CI/CD pipeline setup with GitHub Actions
-- [ ] Database migration system (Knex.js or similar)
-- [ ] API documentation with Swagger/OpenAPI
-- [ ] Performance optimization (caching, database indexing)
+Technical Improvements
+- [ ] TypeScript migration for type safety
+- [ ] Comprehensive error boundaries
+- [ ] Monitoring & analytics (Sentry, Google Analytics)
+- [ ] CI/CD pipeline (GitHub Actions)
+- [ ] API documentation (Swagger/OpenAPI)
+- [ ] Advanced caching strategies
 
----
 
-## 📝 License
-
-This project is provided as-is for educational and hackathon purposes.
-
----
-
-## 📧 Contact & Support
-
-For questions, feedback, or collaboration opportunities, please reach out to the development team or open an issue in the repository.
-
-**Last Updated:** February 1, 2026
+Last Updated: February 1, 2026
