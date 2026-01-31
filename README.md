@@ -281,47 +281,6 @@ NODE_ENV=development
 
 ---
 
-## 👤 My Role & Contributions
-
-### Full-Stack Development
-- ✅ Architected React frontend with component-based design
-- ✅ Built Express.js REST API with proper error handling
-- ✅ Implemented multi-wallet system with financial logic
-- ✅ Designed PostgreSQL schema for transaction persistence
-
-### Core Features Implementation
-- ✅ **Smart Round-Off Algorithm** — Calculates and routes spare change automatically
-- ✅ **Multi-Wallet Management** — Active → Savings → Investment wallet flows
-- ✅ **Atomic Transactions** — Database-level safety for fund transfers
-- ✅ **Real-Time Dashboard** — React components with live balance updates
-- ✅ **ML Integration** — Connected stock recommendation engine
-
-### Infrastructure & Security
-- ✅ PostgreSQL setup with connection pooling
-- ✅ Environment-based configuration system
-- ✅ CORS middleware for frontend-backend communication
-- ✅ Input validation and error handling throughout
-
-### Performance & Optimization
-- ✅ Vite for fast dev server and hot reload
-- ✅ Database query optimization
-- ✅ React hooks for efficient state management
-- ✅ Component-level memoization for performance
-
----
-
-## 👥 Team Credits
-
-| Role | Name |
-|------|------|
-| 💻 **Full-Stack Development & Architecture** | Diya R. Gowda |
-| 🤖 **ML Model Development** | [ML Engineer Name] |
-| 🗄️ **Database Expert** | [Database Expert Name] |
-| 🎨 **UI/UX Design & Mentorship** | [Design Lead Name] |
-| 📊 **Product Strategy** | [Product Manager Name] |
-
----
-
 ## 🚀 Future Enhancements
 
 ### Phase 1 (1-2 months)
@@ -357,22 +316,10 @@ NODE_ENV=development
 
 ---
 
-## 📝 License
-
-Educational & Hackathon Use Only
-
----
-
-## 📧 Contact & Support
-
-For questions or collaboration opportunities, please reach out to the development team.
-
----
-
 <div align="center">
 
-**Last Updated:** February 1, 2026
 
-**Made with ❤️ for the Hackathon**
+
+**Made with ❤️ for all**
 
 </div>
